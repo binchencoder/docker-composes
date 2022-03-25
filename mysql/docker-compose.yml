@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+
+  mysql-db:
+    container_name: mysql-docker        
+    image: mysql:8.0                   
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_ROOT_HOST: ${MYSQL_ROOT_HOST}
+    volumes:
+      - "${MYSQL_DIR}/data:/var/lib/mysql"           
+      - "${MYSQL_DIR}/config:/etc/mysql/conf.d"      
