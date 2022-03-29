@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  nginx:
+    image: dockerbing/gencode:latest
+    container_name: gencode
+    restart: always
+    privileged: true
+    environment:
+      - TZ=Asia/Shanghai 
+    ports:
+      - 6969:6969
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./log:/var/log/gencode
