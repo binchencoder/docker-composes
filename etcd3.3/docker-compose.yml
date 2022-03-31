@@ -1,0 +1,64 @@
+# Link 
+# https://www.cnblogs.com/harlanzhang/articles/10239350.html
+# https://www.jianshu.com/p/8bd8606bd6be
+version: "3.7"
+
+services:
+  etcd:
+    container_name: etcd1
+    image: registry.cn-hangzhou.aliyuncs.com/google_containers/etcd-amd64:3.3.10
+    ports:
+      - 2379:2379
+      - 2380:2380
+    environment:
+      - TZ=CST-8
+      - LANG=zh_CN.UTF-8
+    # network_mode: "host"
+    restart: always
+    # stdin_open: true
+    # tty: true
+    volumes:
+      # 目录映射
+      - "${ETCD_DIR}/etcd:/var/lib/etcd"
+    command:
+      # 执行的命令
+      /usr/local/bin/etcd
+      -name etcd1
+      -data-dir /etcd-data
+      -advertise-client-urls http://0.0.0.0:2379
+      -listen-client-urls http://0.0.0.0:2379
+      -listen-peer-urls http://0.0.0.0:2380
+      -initial-cluster-token etcd-cluster
+      -initial-cluster "etcd1=http://etcd1:2380"
+      -initial-cluster-state new
+
+
+# etcd:
+#     container_name: etcd0
+#     image: registry.cn-hangzhou.aliyuncs.com/coreos_etcd/etcd:v3
+#     ports:
+#       - "2379:2379"
+#       - "4001:4001"
+#       - "2380:2380"
+#     environment:
+#       - TZ=CST-8
+#       - LANG=zh_CN.UTF-8
+#     command: 
+#       /usr/local/bin/etcd
+#       -name etcd0 
+#       -data-dir /etcd-data
+#       -advertise-client-urls http://${host_ip}:2379,http://${host_ip}:4001
+#       -listen-client-urls http://0.0.0.0:2379,http://0.0.0.0:4001
+#       -initial-advertise-peer-urls http://${host_ip}:2380
+#       -listen-peer-urls http://0.0.0.0:2380 
+#       -initial-cluster-token docker-etcd 
+#       -initial-cluster etcd0=http://${host_ip}:2380
+#       -initial-cluster-state new 
+#     volumes:
+#       - "/data/conf/etcd/data:/etcd-data"
+#       # - "/data/config/etcd/ca-certificates/:/etc/ssl/certs"
+#     labels:
+#       - project.source=
+#       - project.extra=public-image
+#       - project.depends=
+#       - project.owner=LHZ
