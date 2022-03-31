@@ -1,0 +1,30 @@
+version: "3.7"
+
+services:
+  redis:
+    image: redis:4
+    restart: always
+    # 如果不需要外网访问，使用"127.0.0.1:6379:6379"来限制
+    ports:
+      - 6379:6379
+    environment:
+      - TZ=Asia/Shanghai
+    volumes:
+      # 目录映射
+      - "${REDIS_DIR}/redis.conf:/etc/redis/redis.conf"
+      - "${REDIS_DIR}/data:/data"
+    networks:
+      - app_net
+    container_name: "redis4"
+    command:
+      # 执行的命令
+      redis-server
+
+networks:
+    # 配置docker network
+    app_net:
+        driver: bridge
+        ipam:
+            config:
+                # 子网络
+                - subnet: 178.18.0.0/16
