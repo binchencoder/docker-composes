@@ -1,6 +1,12 @@
+*/data
 */*/data
 */*/logs
 */log
 
 # postgres
 */pgdata
+
+# brat
+
+# zookeeper
+*/zk1/datalog

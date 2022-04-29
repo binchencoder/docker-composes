@@ -1,0 +1,16 @@
+version: "3"
+services:
+  brat:
+   image: cassj/brat
+   ports:
+      - "38080:80"
+   environment:
+    BRAT_USERNAME: brat
+    BRAT_PASSWORD: brat
+    BRAT_EMAIL: brat@example.com
+   volumes:
+      - ./data:/var/www/brat/brat-v1.3_Crunchy_Frog/data
+        #- /home/brat/projectconfig.py:/var/www/brat/brat-v1.3_Crunchy_Frog/server/src/projectconfig.py
+      - ./config.py:/var/www/brat/brat-v1.3_Crunchy_Frog/config.py
+
+
