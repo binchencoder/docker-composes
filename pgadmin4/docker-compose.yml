@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+  pgAdmin4:
+    restart: always
+    image: dpage/pgadmin4:latest
+    environment:
+      PGADMIN_DEFAULT_EMAIL: chenbin@email.com
+      PGADMIN_DEFAULT_PASSWORD: postgre
+    ports:
+      - "8084:80" #页面
