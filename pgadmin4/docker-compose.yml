@@ -4,8 +4,12 @@ services:
   pgAdmin4:
     restart: always
     image: dpage/pgadmin4:latest
+    ports:
+      - "8084:80" #页面
     environment:
       PGADMIN_DEFAULT_EMAIL: chenbin@email.com
       PGADMIN_DEFAULT_PASSWORD: postgre
-    ports:
-      - "8084:80" #页面
+      PGADMIN_ENABLE_TLS: False
+    volumes:
+      - ./lib/pgadmin:/var/lib/pgadmin
+      - ./servers.json:/pgadmin4/servers.json
