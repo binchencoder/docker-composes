@@ -9,7 +9,7 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: chenbin@email.com
       PGADMIN_DEFAULT_PASSWORD: postgre
-      PGADMIN_ENABLE_TLS: False
-    volumes:
-      - ./lib/pgadmin:/var/lib/pgadmin
-      - ./servers.json:/pgadmin4/servers.json
+      # PGADMIN_ENABLE_TLS: False
+    # volumes:
+    #   - ./lib/pgadmin:/var/lib/pgadmin
+    #   - ./servers.json:/pgadmin4/servers.json
