@@ -22,7 +22,7 @@ services:
       retries: 3
       start_period: 20s
     ports:
-      - 9559
+      - "9559:9559"
       - 19559
       - 19560
     volumes:
@@ -56,7 +56,7 @@ services:
       retries: 3
       start_period: 20s
     ports:
-      - 9559
+      - "9560:9559"
       - 19559
       - 19560
     volumes:
@@ -90,7 +90,7 @@ services:
       retries: 3
       start_period: 20s
     ports:
-      - 9559
+      - "9561:9559"
       - 19559
       - 19560
     volumes:
@@ -128,7 +128,7 @@ services:
       retries: 3
       start_period: 20s
     ports:
-      - 9779
+      - "9779:9779"
       - 19779
       - 19780
     volumes:
@@ -166,7 +166,7 @@ services:
       retries: 3
       start_period: 20s
     ports:
-      - 9779
+      - "9780:9779"
       - 19779
       - 19780
     volumes:
@@ -204,7 +204,7 @@ services:
       retries: 3
       start_period: 20s
     ports:
-      - 9779
+      - "9781:9779"
       - 19779
       - 19780
     volumes:

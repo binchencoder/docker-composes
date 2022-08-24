@@ -1,0 +1,22 @@
+version: '3'
+services:
+  neo4j:
+    image: neo4j:4.3.7
+    hostname: neo4jServer
+    volumes:
+     # 把容器内的数据目录挂载到宿主机的对应目录下
+     - ./data/neo4j:/data
+     # 挂载日志目录
+     - ./logs/neo4j:/logs
+     # 挂载配置目录
+     - ./conf:/var/lib/neo4j/conf
+     # 挂载数据导入目录
+     - ./import:/var/lib/neo4j/import
+    environment:
+     # 设定数据库的名字的访问密码
+     - NEO4J_AUTH=neo4j/passwd
+    ports:
+      # 映射容器的端口号到宿主机的端口号
+      - "7474:7474"
+      - "7687:7687"
+    restart: always

@@ -1,7 +1,13 @@
 */data
 */*/data
+
+*/logs
 */*/logs
 */log
+
+# neo4j
+*/import
+neo4j/conf
 
 # postgres
 */pgdata
