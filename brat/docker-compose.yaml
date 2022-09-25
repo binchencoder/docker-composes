@@ -1,7 +1,7 @@
 version: "3"
 services:
   brat:
-   image: cassj/brat
+   image: cassj/brat:v20220924
    ports:
       - "38080:80"
    environment:
