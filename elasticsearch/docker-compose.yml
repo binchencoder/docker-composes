@@ -28,17 +28,17 @@ services:
     networks:
       - es
 
-  # kibana:
-  #   image: docker.elastic.co/kibana/kibana:7.15.2 # 原镜像`kibana:7.15.2`
-  #   container_name: kibana
-  #   restart: unless-stopped
-  #   volumes:
-  #     - ./elasticsearch/kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml
-  #   ports:
-  #     - "5602:5602"
-  #   depends_on:
-  #     - elasticsearch
-  #   links:
-  #     - elasticsearch
-  #   networks:
-  #     - es
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.15.2 # 原镜像`kibana:7.15.2`
+    container_name: kibana
+    restart: unless-stopped
+    volumes:
+      - ./elasticsearch/kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml
+    ports:
+      - "5602:5602"
+    depends_on:
+      - elasticsearch
+    links:
+      - elasticsearch
+    networks:
+      - es
