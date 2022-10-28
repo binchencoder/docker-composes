@@ -1,0 +1,17 @@
+version: '3'
+
+# 网桥es -> 方便相互通讯
+networks:
+  es:
+
+services:
+  kibana-client:
+    image: docker.elastic.co/kibana/kibana:7.15.2 # 原镜像`kibana:7.15.2`
+    container_name: kibana
+    restart: unless-stopped
+    volumes:
+      - ./config/kibana.yml:/usr/share/kibana/config/kibana.yml
+    ports:
+      - "5702:5602"
+    networks:
+      - es

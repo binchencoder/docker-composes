@@ -1,0 +1,8 @@
+server.name: kibana
+server.port: 5602
+server.host: "0.0.0.0"
+elasticsearch.hosts: [ "http://172.16.20.21:32477" ] # TODO 修改为自己的ip
+xpack.monitoring.ui.container.elasticsearch.enabled: true
+elasticsearch.username: "elastic"  # es账号
+elasticsearch.password: "123456"   # es密码
+i18n.locale: zh-CN # 中文

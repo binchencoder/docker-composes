@@ -1,0 +1,15 @@
+version: '3'
+
+# 网桥es -> 方便相互通讯
+networks:
+  es:
+
+services:
+  elastic-head:
+    image: mobz/elasticsearch-head:5
+    container_name: eshead
+    restart: unless-stopped
+    ports:
+      - "9100:9100"
+    networks:
+      - es
