@@ -1,7 +1,7 @@
 version: '3'
 services:
   neo4j:
-    image: neo4j:4.3.7
+    image: neo4j:4.4.18
     hostname: neo4jServer
     volumes:
      # 把容器内的数据目录挂载到宿主机的对应目录下

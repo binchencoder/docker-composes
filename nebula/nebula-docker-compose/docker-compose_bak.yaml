@@ -22,7 +22,7 @@ services:
       retries: 3
       start_period: 20s
     ports:
-      - "9559:9559"
+      - "38059:9559"
       - 19559
       - 19560
     volumes:
@@ -56,7 +56,7 @@ services:
       retries: 3
       start_period: 20s
     ports:
-      - "9560:9559"
+      - "38060:9559"
       - 19559
       - 19560
     volumes:
@@ -90,7 +90,7 @@ services:
       retries: 3
       start_period: 20s
     ports:
-      - "9561:9559"
+      - "38061:9559"
       - 19559
       - 19560
     volumes:
@@ -253,7 +253,7 @@ services:
       retries: 3
       start_period: 20s
     ports:
-      - "9669:9669"
+      - "38069:9669"
       - 19669
       - 19670
     volumes:
