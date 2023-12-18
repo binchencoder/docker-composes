@@ -15,3 +15,7 @@
 
 # zookeeper
 */zk1/datalog
+
+
+#labelstudio
+labelstudio/postgres-data

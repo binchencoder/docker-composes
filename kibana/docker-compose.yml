@@ -12,6 +12,6 @@ services:
     volumes:
       - ./config/kibana.yml:/usr/share/kibana/config/kibana.yml
     ports:
-      - "5702:5602"
+      - "5602:5602"
     networks:
       - es
