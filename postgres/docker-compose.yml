@@ -1,13 +1,15 @@
 version: '3'
 services:
   postgres:
-    image: postgres:latest
+    image: postgis/postgis:17-3.5  # postgres:latest
     container_name: postgres_dc
     volumes:
-      - ./pgdata:/var/lib/postgresql/data
+      - ./pgdata:/var/lib/postgresql
     environment:
       POSTGRES_USER: postgre #在此填写postgres的用户名
       POSTGRES_DB: postgres #在此填写postgres的数据库名，默认是postgres
       POSTGRES_PASSWORD: postgre #在此填写posgres的数据库密码
+    security_opt:
+      - seccomp:unconfined  # 允许容器执行某些被限制的系统调用
     ports:
       - "5432:5432"
